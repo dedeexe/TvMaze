@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SeriesListContainerView: View {
-    @StateObject var showsList = ShowsList()
+    @StateObject var showsList = ShowsData()
     @State var firstTime: Bool = false
 
     var body: some View {
@@ -20,6 +20,6 @@ struct SeriesListContainerView: View {
 
 struct MovieListContainerView_Previews: PreviewProvider {
     static var previews: some View {
-        SeriesListContainerView(showsList: ShowsList())
+        SeriesListContainerView(showsList: ShowsData())
     }
 }

@@ -1,7 +1,7 @@
 import Foundation
 
 @MainActor
-final class ShowsList: ObservableObject {
+final class ShowsData: ObservableObject {
     @Published var list: [Show] = []
     @Published private(set) var isFirstLoading: Bool = true
     @Published private(set) var isLoading: Bool = false
@@ -39,9 +39,9 @@ final class ShowsList: ObservableObject {
 }
 
 #if DEBUG
-extension ShowsList {
-    static var mocked: ShowsList {
-        ShowsList()
+extension ShowsData {
+    static var mocked: ShowsData {
+        ShowsData()
     }
 }
 #endif

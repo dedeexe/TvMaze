@@ -2,8 +2,8 @@ import SwiftUI
 
 struct SerieDetailContainerView: View {
     @State var show: Show
-    @ObservedObject var showsList: ShowsList
-    @StateObject var seasonsList = SeasonsList()
+    @ObservedObject var showsList: ShowsData
+    @StateObject var seasonsList = SeasonsData()
 
     var body: some View {
         SerieDetailView(show: $show)

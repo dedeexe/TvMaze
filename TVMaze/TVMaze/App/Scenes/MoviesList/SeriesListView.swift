@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SeriesListView: View {
-    @EnvironmentObject var showsList: ShowsList
+    @EnvironmentObject var showsList: ShowsData
     @State private var selectedShow: Show?
 
     var body: some View {
@@ -35,6 +35,6 @@ struct SeriesListView: View {
 struct MoviesListView_Previews: PreviewProvider {
     static var previews: some View {
         SeriesListView()
-            .environmentObject(ShowsList(serviceLocator: ServiceLocatorFactory.mocked))
+            .environmentObject(ShowsData(serviceLocator: ServiceLocatorFactory.mocked))
     }
 }

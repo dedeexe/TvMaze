@@ -1,7 +1,7 @@
 import Foundation
 
 @MainActor
-final class SeasonsList: ObservableObject {
+final class SeasonsData: ObservableObject {
     @Published var seasons: Seasons = Seasons(episodes: [])
     @Published private(set) var isLoading: Bool = false
 
@@ -30,9 +30,9 @@ final class SeasonsList: ObservableObject {
 }
 
 #if DEBUG
-extension SeasonsList {
-    static var mocked: SeasonsList {
-        SeasonsList()
+extension SeasonsData {
+    static var mocked: SeasonsData {
+        SeasonsData()
     }
 }
 #endif

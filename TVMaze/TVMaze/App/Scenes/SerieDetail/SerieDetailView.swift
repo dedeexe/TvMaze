@@ -2,8 +2,8 @@ import SwiftUI
 
 struct SerieDetailView: View {
     @Binding var show: Show
-    @EnvironmentObject var showsList: ShowsList
-    @EnvironmentObject var seasonsList: SeasonsList
+    @EnvironmentObject var showsList: ShowsData
+    @EnvironmentObject var seasonsList: SeasonsData
 
     var body: some View {
         VStack {
@@ -91,6 +91,6 @@ struct SerieDetailView: View {
 struct SerieDetailView_Previews: PreviewProvider {
     static var previews: some View {
         SerieDetailView(show: .constant(.fixture()))
-            .environmentObject(SeasonsList())
+            .environmentObject(SeasonsData())
     }
 }
