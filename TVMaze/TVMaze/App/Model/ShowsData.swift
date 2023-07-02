@@ -18,6 +18,13 @@ final class ShowsData: ObservableObject {
         self.service = service
     }
 
+    func reset() {
+        isFirstLoading = true
+        isLoading = false
+        hasMorePages = true
+        page = 0
+    }
+
     func load() {
         Task {
             do {

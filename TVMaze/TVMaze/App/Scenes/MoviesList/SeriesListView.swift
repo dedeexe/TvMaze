@@ -24,6 +24,10 @@ struct SeriesListView: View {
             }
             .padding(8.0)
         }
+        .refreshable {
+            showsData.reset()
+            showsData.load()
+        }
     }
 
     private var loadingView: some View {
