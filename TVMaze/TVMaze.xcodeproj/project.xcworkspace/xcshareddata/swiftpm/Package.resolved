@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "ddxnetwork",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dedeexe/DDXNetwork/",
+      "state" : {
+        "revision" : "53eec7f933b3c609205a44fc514059c8500a1abf",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}
