@@ -2,7 +2,7 @@ import Foundation
 
 @MainActor
 final class ShowsData: ObservableObject {
-    @Published var list: [Show] = []
+    @Published var shows: [Show] = []
     @Published private(set) var isFirstLoading: Bool = true
     @Published private(set) var isLoading: Bool = false
     private(set) var page = 0
@@ -28,7 +28,7 @@ final class ShowsData: ObservableObject {
                     page += 1
                 }
                 
-                list += shows
+                self.shows += shows
                 isLoading = false
                 isFirstLoading = false
             } catch {

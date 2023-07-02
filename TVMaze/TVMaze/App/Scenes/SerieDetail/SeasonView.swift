@@ -27,7 +27,9 @@ struct SeasonView: View {
             if season.expanded {
                 ForEach(season.episodes, id: \.self) { episode in
                     Text("\(episode.number). \(episode.name)")
+                        .font(.callout)
                         .padding([.leading, .bottom, .top], 5)
+
                 }
             }
         }

@@ -39,5 +39,9 @@ private extension Show {
         imageURL = URL(string: model.image?.medium ?? "")
         largeImageURL = URL(string: model.image?.original ?? "")
         genres = model.genres ?? []
+        scheduleDays = model.schedule?.days ?? []
+        scheduleTime = model.schedule?.time ?? ""
+        duration = model.runtime ?? 0
+
     }
 }

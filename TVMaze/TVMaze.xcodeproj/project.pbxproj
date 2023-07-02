@@ -209,11 +209,11 @@
 		91841AB32A506EF700C2781F /* App */ = {
 			isa = PBXGroup;
 			children = (
-				91841AE72A51FC9A00C2781F /* Helpers */,
-				91841AE12A51E78600C2781F /* Views */,
 				91841AC12A509B1B00C2781F /* Environment */,
+				91841AE72A51FC9A00C2781F /* Helpers */,
 				91841AB82A508DFD00C2781F /* Model */,
 				91841AB02A506BDD00C2781F /* Scenes */,
+				91841AE12A51E78600C2781F /* Views */,
 			);
 			path = App;
 			sourceTree = "<group>";

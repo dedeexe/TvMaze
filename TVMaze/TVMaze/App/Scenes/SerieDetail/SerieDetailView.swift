@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SerieDetailView: View {
     @Binding var show: Show
-    @EnvironmentObject var showsList: ShowsData
+    @EnvironmentObject var showsData: ShowsData
     @EnvironmentObject var seasonsList: SeasonsData
 
     var body: some View {
@@ -77,6 +77,7 @@ struct SerieDetailView: View {
         VStack(alignment: .leading) {
             Text("Episodes")
                 .font(.footnote)
+                .bold()
 
             if seasonsList.isLoading {
                 ProgressView()

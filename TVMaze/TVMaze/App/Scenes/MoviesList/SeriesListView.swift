@@ -1,24 +1,24 @@
 import SwiftUI
 
 struct SeriesListView: View {
-    @EnvironmentObject var showsList: ShowsData
+    @EnvironmentObject var showsData: ShowsData
     @State private var selectedShow: Show?
 
     var body: some View {
         ScrollView{
             LazyVStack(spacing: 8.0) {
-                ForEach(showsList.list) { show in
+                ForEach(showsData.shows) { show in
                     SerieInfoView(show: show)
                         .onTapGesture { selectedShow = show }
                         .sheet(item: $selectedShow) { show in
                             SerieDetailContainerView(
                                 show: show,
-                                showsList: showsList
+                                showsData: showsData
                             )
                         }
                 }
 
-                if !showsList.isLoading {
+                if !showsData.isLoading {
                     loadingView
                 }
             }
@@ -28,7 +28,7 @@ struct SeriesListView: View {
 
     private var loadingView: some View {
         Text("Is Loading ***")
-            .onAppear(perform: showsList.load)
+            .onAppear(perform: showsData.load)
     }
 }
 

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SerieDetailContainerView: View {
     @State var show: Show
-    @ObservedObject var showsList: ShowsData
+    @ObservedObject var showsData: ShowsData
     @StateObject var seasonsList = SeasonsData()
 
     var body: some View {
@@ -11,7 +11,7 @@ struct SerieDetailContainerView: View {
             .onChange(of: show) { newValue in
                 print(newValue)
             }
-            .environmentObject(showsList)
+            .environmentObject(showsData)
             .environmentObject(seasonsList)
     }
 }

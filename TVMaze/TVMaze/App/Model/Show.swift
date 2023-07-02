@@ -7,6 +7,9 @@ struct Show: Identifiable, Equatable {
     var status: String
     var genres: [String]
     var rating: String
+    var scheduleDays: [String]
+    var scheduleTime: String
+    var duration: Int
     var imageURL: URL?
     var largeImageURL: URL?
 
@@ -17,6 +20,9 @@ struct Show: Identifiable, Equatable {
         status: String,
         genres: [String],
         rating: String,
+        scheduleDays: [String],
+        scheduleTime: String,
+        duration: Int,
         imageURL: URL?,
         largeImageURL: URL?
     ) {
@@ -25,6 +31,9 @@ struct Show: Identifiable, Equatable {
         self.summary = summary
         self.status = status
         self.rating = rating
+        self.scheduleDays = scheduleDays
+        self.scheduleTime = scheduleTime
+        self.duration = duration
         self.imageURL = imageURL
         self.genres = genres
         self.largeImageURL = largeImageURL
@@ -40,6 +49,9 @@ extension Show {
         status: String = "Ended",
         genres: [String] = ["Sci-Fi", "Romance"],
         rating: String = "9",
+        scheduleDays: [String] = ["Tue, Fri"],
+        scheduleTime: String = "00:00",
+        duration: Int = 60,
         imageURL: URL? = nil,
         largeImageURL: URL? = nil
     ) -> Show {
@@ -50,6 +62,9 @@ extension Show {
             status: status,
             genres: genres,
             rating: rating,
+            scheduleDays: scheduleDays,
+            scheduleTime: scheduleTime,
+            duration: duration,
             imageURL: imageURL,
             largeImageURL: largeImageURL
         )

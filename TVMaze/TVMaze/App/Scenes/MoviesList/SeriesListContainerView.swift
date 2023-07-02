@@ -1,17 +1,17 @@
 import SwiftUI
 
 struct SeriesListContainerView: View {
-    @StateObject var showsList = ShowsData()
+    @StateObject var showsData = ShowsData()
     @State var firstTime: Bool = false
 
     var body: some View {
         VStack {
-            if showsList.isFirstLoading {
+            if showsData.isFirstLoading {
                 ProgressView()
-                    .onAppear { showsList.load() }
+                    .onAppear { showsData.load() }
             } else {
                 SeriesListView()
-                    .environmentObject(showsList)
+                    .environmentObject(showsData)
             }
         }
         .navigationTitle("Shows")
@@ -20,6 +20,6 @@ struct SeriesListContainerView: View {
 
 struct MovieListContainerView_Previews: PreviewProvider {
     static var previews: some View {
-        SeriesListContainerView(showsList: ShowsData())
+        SeriesListContainerView(showsData: ShowsData())
     }
 }

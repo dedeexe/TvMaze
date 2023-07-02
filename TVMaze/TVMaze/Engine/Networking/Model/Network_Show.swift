@@ -9,6 +9,8 @@ extension Model.Network {
         let rating: Rating?
         let summary: String?
         let image: ImageURL?
+        let schedule: Schedule?
+        let runtime: Int?
     }
 
     struct Rating: Decodable, Hashable {
@@ -18,5 +20,10 @@ extension Model.Network {
     struct ImageURL: Decodable, Hashable {
         let medium: String?
         let original: String?
+    }
+
+    struct Schedule: Decodable, Hashable {
+        let time: String?
+        let days: [String]?
     }
 }
