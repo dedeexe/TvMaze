@@ -16,7 +16,7 @@ class ShowService {
         )
         
         return try await withCheckedThrowingContinuation{ (continuation: CheckedContinuation<[Show], Error>) in
-            service.request([Model.Extern.Show].self, from: request, additionalHeaders: [:]) { result in
+            service.request([Model.Network.Show].self, from: request, additionalHeaders: [:]) { result in
                 switch result {
                 case .success(let value):
                     let shows = value.map { Show(from: $0) }
@@ -30,10 +30,13 @@ class ShowService {
 }
 
 private extension Show {
-    init(from model: Model.Extern.Show) {
+    init(from model: Model.Network.Show) {
         id = model.id
         name = model.name ?? ""
+        summary = model.summary ?? ""
         status = model.status ?? ""
         rating = String(model.rating?.average ?? 0.0)
+        imageURL = URL(string:model.image?.medium ?? "")
+        genres = model.genres ?? []
     }
 }

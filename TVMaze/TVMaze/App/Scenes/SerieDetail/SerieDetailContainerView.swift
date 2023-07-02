@@ -5,15 +5,9 @@ struct SerieDetailContainerView: View {
     @ObservedObject var showsList: ShowsList
 
     var body: some View {
-        Text(show.name)
+        SerieDetailView(show: $show)
+            .onChange(of: show) { newValue in
+                print(newValue)
+            }
     }
 }
-
-//struct SerieDetailContainerView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SerieDetailContainerView(
-//            show: .fixture(),
-//            showsList: ShowsList()
-//        )
-//    }
-//}

@@ -1,3 +1,0 @@
-enum Model {
-    enum Extern {}
-}

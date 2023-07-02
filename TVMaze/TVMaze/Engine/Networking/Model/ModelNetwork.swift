@@ -1,0 +1,3 @@
+enum Model {
+    enum Network {}
+}

@@ -12,19 +12,26 @@ struct SerieInfoView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .top) {
-                Rectangle()
-                    .frame(width: 80, height: 80)
+                ImageLoader(url: show.imageURL)
+                    .frame(width: 60, height: 80)
+                    .clipped()
 
                 VStack(alignment: .leading) {
-                    Text(show.name)
+                    Text(show.name).font(.callout.bold())
+                    Text(genres).font(.footnote)
                     Spacer()
-                    Text(show.status)
-                    Text("Rating:" + show.rating)
+                    Text(show.status).font(.footnote)
+                    Text("Rating:" + show.rating).font(.footnote)
                 }
 
                 Spacer()
             }
+            Divider()
         }
+    }
+
+    var genres: String {
+        show.genres.joined(separator: ", ")
     }
 }
 
