@@ -36,7 +36,8 @@ private extension Show {
         summary = model.summary ?? ""
         status = model.status ?? ""
         rating = String(model.rating?.average ?? 0.0)
-        imageURL = URL(string:model.image?.medium ?? "")
+        imageURL = URL(string: model.image?.medium ?? "")
+        largeImageURL = URL(string: model.image?.original ?? "")
         genres = model.genres ?? []
     }
 }

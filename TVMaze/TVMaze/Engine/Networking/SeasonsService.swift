@@ -1,14 +1,14 @@
 import DDXNetwork
 import Foundation
 
-class EpisodesService {
+class SeasonsService {
     let service: RequestService
 
     init(service: RequestService = RequestWorker()) {
         self.service = service
     }
 
-    func getAll(showId: Int) async throws -> [Episode] {
+    func getAll(showId: Int) async throws -> Seasons {
         let request = Request(
             url: AppConfig.baseURL + "shows/\(showId)/episodes",
 
@@ -16,12 +16,13 @@ class EpisodesService {
             headers: [:]
         )
 
-        return try await withCheckedThrowingContinuation{ (continuation: CheckedContinuation<[Episode], Error>) in
+        return try await withCheckedThrowingContinuation{ (continuation: CheckedContinuation<Seasons, Error>) in
             service.request([Model.Network.Episode].self, from: request, additionalHeaders: [:]) { result in
                 switch result {
                 case .success(let value):
                     let episodes = value.map { Episode(from: $0) }
-                    continuation.resume(returning: episodes)
+                    let seasons = Seasons(episodes: episodes)
+                    continuation.resume(returning: seasons)
                 case .failure(let error):
                     continuation.resume(throwing: error)
                 }

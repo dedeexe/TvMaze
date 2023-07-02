@@ -17,5 +17,6 @@ extension Model.Network {
 
     struct ImageURL: Decodable, Hashable {
         let medium: String?
+        let original: String?
     }
 }

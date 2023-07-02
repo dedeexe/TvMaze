@@ -16,8 +16,8 @@ extension Episode {
         name: String = "The Episode",
         number: Int = 10,
         season: Int = 20,
-        summary: String,
-        imageURL: URL?
+        summary: String = "The summary of The Episode",
+        imageURL: URL? = nil
     ) -> Episode {
         .init(id: id, name: name, number: number, season: season, summary: summary, imageURL: imageURL)
     }

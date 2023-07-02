@@ -2,6 +2,8 @@ import SwiftUI
 
 struct SerieDetailView: View {
     @Binding var show: Show
+    @EnvironmentObject var showsList: ShowsList
+    @EnvironmentObject var seasonsList: SeasonsList
 
     var body: some View {
         VStack {
@@ -10,6 +12,8 @@ struct SerieDetailView: View {
                 summaryView
                 Divider()
                 genresView
+                Divider()
+                seasonsListView
                 Spacer()
             }
         }
@@ -19,7 +23,7 @@ struct SerieDetailView: View {
         let height = 200.0
 
         return ZStack(alignment: .bottomLeading) {
-            ImageLoader(url: show.imageURL)
+            ImageLoader(url: show.largeImageURL)
                 .frame(height: height, alignment: .top)
                 .clipped()
 
@@ -49,6 +53,7 @@ struct SerieDetailView: View {
         VStack(alignment: .leading, spacing: 4.0) {
             Text("Genres")
                 .font(.footnote)
+                .bold()
                 .padding([.leading, .trailing], 8)
 
             ScrollView(.horizontal) {
@@ -67,10 +72,25 @@ struct SerieDetailView: View {
             .font(.caption)
             .padding(4.0)
     }
+
+    var seasonsListView: some View {
+        VStack(alignment: .leading) {
+            Text("Episodes")
+                .font(.footnote)
+
+            if seasonsList.isLoading {
+                ProgressView()
+            } else {
+                SeasonListView(seasons: $seasonsList.seasons)
+            }
+        }
+        .padding([.leading, .trailing], 8)
+    }
 }
 
 struct SerieDetailView_Previews: PreviewProvider {
     static var previews: some View {
         SerieDetailView(show: .constant(.fixture()))
+            .environmentObject(SeasonsList())
     }
 }

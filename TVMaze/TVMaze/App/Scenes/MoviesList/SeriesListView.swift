@@ -1,17 +1,15 @@
 import SwiftUI
 
 struct SeriesListView: View {
-    @ObservedObject var showsList: ShowsList
-    @State private var selectedShow: Show!
+    @EnvironmentObject var showsList: ShowsList
+    @State private var selectedShow: Show?
 
     var body: some View {
         ScrollView{
             LazyVStack(spacing: 8.0) {
                 ForEach(showsList.list) { show in
                     SerieInfoView(show: show)
-                        .onTapGesture {
-                            selectedShow = show
-                        }
+                        .onTapGesture { selectedShow = show }
                         .sheet(item: $selectedShow) { show in
                             SerieDetailContainerView(
                                 show: show,
@@ -36,6 +34,7 @@ struct SeriesListView: View {
 
 struct MoviesListView_Previews: PreviewProvider {
     static var previews: some View {
-        SeriesListView(showsList: ShowsList(serviceLocator: ServiceLocatorFactory.mocked))
+        SeriesListView()
+            .environmentObject(ShowsList(serviceLocator: ServiceLocatorFactory.mocked))
     }
 }

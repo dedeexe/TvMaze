@@ -8,6 +8,7 @@ struct Show: Identifiable, Equatable {
     var genres: [String]
     var rating: String
     var imageURL: URL?
+    var largeImageURL: URL?
 
     init(
         id: Int,
@@ -16,7 +17,8 @@ struct Show: Identifiable, Equatable {
         status: String,
         genres: [String],
         rating: String,
-        imageURL: URL?
+        imageURL: URL?,
+        largeImageURL: URL?
     ) {
         self.id = id
         self.name = name
@@ -25,6 +27,7 @@ struct Show: Identifiable, Equatable {
         self.rating = rating
         self.imageURL = imageURL
         self.genres = genres
+        self.largeImageURL = largeImageURL
     }
 }
 
@@ -37,7 +40,8 @@ extension Show {
         status: String = "Ended",
         genres: [String] = ["Sci-Fi", "Romance"],
         rating: String = "9",
-        imageURL: URL? = nil
+        imageURL: URL? = nil,
+        largeImageURL: URL? = nil
     ) -> Show {
         .init(
             id: id,
@@ -46,7 +50,8 @@ extension Show {
             status: status,
             genres: genres,
             rating: rating,
-            imageURL: imageURL
+            imageURL: imageURL,
+            largeImageURL: largeImageURL
         )
     }
 }

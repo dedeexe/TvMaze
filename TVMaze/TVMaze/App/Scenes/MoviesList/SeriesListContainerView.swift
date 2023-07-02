@@ -7,12 +7,11 @@ struct SeriesListContainerView: View {
     var body: some View {
         VStack {
             if showsList.isFirstLoading {
-                Text("Is Loading")
-                    .onAppear {
-                        showsList.load()
-                    }
+                ProgressView()
+                    .onAppear { showsList.load() }
             } else {
-                SeriesListView(showsList: showsList)
+                SeriesListView()
+                    .environmentObject(showsList)
             }
         }
         .navigationTitle("Shows")

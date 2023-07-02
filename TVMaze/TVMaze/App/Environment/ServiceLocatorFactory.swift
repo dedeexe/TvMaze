@@ -12,6 +12,7 @@ class ServiceLocatorFactory {
     static let valid: ServiceLocator = {
         let serviceLocator = ServiceLocator()
         serviceLocator.register(service: ShowService())
+        serviceLocator.register(service: SeasonsService())
 
         return serviceLocator
     }()
@@ -20,6 +21,7 @@ class ServiceLocatorFactory {
     static let mocked: ServiceLocator = {
         let serviceLocator = ServiceLocator()
         serviceLocator.register(service: ShowService())
+        serviceLocator.register(service: SeasonsService())
 
         return serviceLocator
     }()
