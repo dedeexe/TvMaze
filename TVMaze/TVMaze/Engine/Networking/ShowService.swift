@@ -10,7 +10,7 @@ class ShowService {
 
     func getAll(page: Int = 0) async throws -> [Show] {
         let request = Request(
-            url: AppConfig.baseURL + "shows?page=\(page)",
+            url: Config.baseURL + "shows?page=\(page)",
             method: .get,
             headers: [:]
         )

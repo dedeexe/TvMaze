@@ -1,5 +1,5 @@
 import Foundation
 
-struct AppConfig {
+struct Config {
     static let baseURL = "https://api.tvmaze.com/"
 }

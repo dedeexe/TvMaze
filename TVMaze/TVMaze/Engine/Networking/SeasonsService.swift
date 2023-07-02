@@ -10,7 +10,7 @@ class SeasonsService {
 
     func getAll(showId: Int) async throws -> Seasons {
         let request = Request(
-            url: AppConfig.baseURL + "shows/\(showId)/episodes",
+            url: Config.baseURL + "shows/\(showId)/episodes",
 
             method: .get,
             headers: [:]
