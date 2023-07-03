@@ -2,20 +2,20 @@ import SwiftUI
 
 struct SeriesListView: View {
     @EnvironmentObject var showsData: ShowsData
-    @State private var selectedShow: Show?
 
     var body: some View {
         ScrollView{
             LazyVStack(spacing: 8.0) {
                 ForEach(showsData.shows) { show in
-                    SerieInfoView(show: show)
-                        .onTapGesture { selectedShow = show }
-                        .sheet(item: $selectedShow) { show in
-                            SerieDetailContainerView(
-                                show: show,
-                                showsData: showsData
-                            )
-                        }
+                    NavigationLink {
+                        SerieDetailContainerView(
+                            show: show,
+                            showsData: showsData
+                        )
+                    } label: {
+                        SerieInfoView(show: show)
+                    }
+                    .accentColor(Color.black)
                 }
 
                 if !showsData.isLoading {

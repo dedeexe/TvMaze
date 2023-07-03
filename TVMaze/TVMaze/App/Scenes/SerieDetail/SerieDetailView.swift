@@ -8,8 +8,10 @@ struct SerieDetailView: View {
 
     var body: some View {
         VStack {
-            topImageTitleView
             ScrollView {
+                topImageTitleView
+                scheduleView
+                Divider()
                 summaryView
                 Divider()
                 genresView
@@ -20,7 +22,7 @@ struct SerieDetailView: View {
         }
     }
 
-    var topImageTitleView: some View {
+    private var topImageTitleView: some View {
         let height = 200.0
 
         return ZStack(alignment: .bottomLeading) {
@@ -50,7 +52,7 @@ struct SerieDetailView: View {
         }
     }
 
-    var genresView: some View {
+    private var genresView: some View {
         VStack(alignment: .leading, spacing: 4.0) {
             Text("Genres")
                 .font(.footnote)
@@ -68,13 +70,13 @@ struct SerieDetailView: View {
         }
     }
 
-    var summaryView: some View {
+    private var summaryView: some View {
         Text(show.summary.htmlTagsRemoved)
-            .font(.caption)
-            .padding(4.0)
+            .font(.footnote)
+            .padding(8)
     }
 
-    var seasonsListView: some View {
+    private var seasonsListView: some View {
         VStack(alignment: .leading) {
             Text("Episodes")
                 .font(.footnote)
@@ -87,6 +89,16 @@ struct SerieDetailView: View {
             }
         }
         .padding([.leading, .trailing], 8)
+    }
+
+    private var scheduleView: some View {
+        HStack(spacing: 8.0) {
+            Text("\(Icon.calendar.image) \(show.scheduleDays.joined(separator: " | "))")
+            Text("\(Icon.clock.image) \(show.scheduleTime)")
+            Spacer()
+        }
+        .font(.footnote)
+        .padding(8)
     }
 }
 

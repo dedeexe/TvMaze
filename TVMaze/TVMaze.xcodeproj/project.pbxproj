@@ -40,6 +40,8 @@
 		91841AFD2A521C2500C2781F /* SeasonsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91841AFC2A521C2500C2781F /* SeasonsData.swift */; };
 		91841AFF2A521FA600C2781F /* SeasonListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91841AFE2A521FA600C2781F /* SeasonListView.swift */; };
 		91841B042A52406400C2781F /* EpisodeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91841B032A52406400C2781F /* EpisodeDetailView.swift */; };
+		91841B062A52517D00C2781F /* ServiceLocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91841B052A52517D00C2781F /* ServiceLocatorTests.swift */; };
+		91841B0A2A5258AC00C2781F /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91841B092A5258AC00C2781F /* Icons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		91841AFC2A521C2500C2781F /* SeasonsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsData.swift; sourceTree = "<group>"; };
 		91841AFE2A521FA600C2781F /* SeasonListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonListView.swift; sourceTree = "<group>"; };
 		91841B032A52406400C2781F /* EpisodeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailView.swift; sourceTree = "<group>"; };
+		91841B052A52517D00C2781F /* ServiceLocatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocatorTests.swift; sourceTree = "<group>"; };
+		91841B092A5258AC00C2781F /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +300,7 @@
 		91841AE72A51FC9A00C2781F /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				91841B082A52585100C2781F /* Icons */,
 				91841AEA2A51FD3500C2781F /* Extensions */,
 			);
 			path = Helpers;
@@ -312,6 +317,7 @@
 		91841B002A523F9100C2781F /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				91841B072A52568400C2781F /* Networking */,
 				91841B012A523F9700C2781F /* Environment */,
 			);
 			path = Engine;
@@ -320,6 +326,7 @@
 		91841B012A523F9700C2781F /* Environment */ = {
 			isa = PBXGroup;
 			children = (
+				91841B052A52517D00C2781F /* ServiceLocatorTests.swift */,
 			);
 			path = Environment;
 			sourceTree = "<group>";
@@ -330,6 +337,21 @@
 				91841B032A52406400C2781F /* EpisodeDetailView.swift */,
 			);
 			path = EpisodeDetail;
+			sourceTree = "<group>";
+		};
+		91841B072A52568400C2781F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		91841B082A52585100C2781F /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				91841B092A5258AC00C2781F /* Icons.swift */,
+			);
+			path = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -482,6 +504,7 @@
 				91841AFD2A521C2500C2781F /* SeasonsData.swift in Sources */,
 				91841AF02A520CBE00C2781F /* Network_Episode.swift in Sources */,
 				91841AE62A51E9B700C2781F /* TextPill.swift in Sources */,
+				91841B0A2A5258AC00C2781F /* Icons.swift in Sources */,
 				91841A862A5069F400C2781F /* AppView.swift in Sources */,
 				91841AC32A509B3B00C2781F /* ServiceLocator.swift in Sources */,
 				91841AE42A51E7AA00C2781F /* ImageLoader.swift in Sources */,
@@ -502,6 +525,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91841B062A52517D00C2781F /* ServiceLocatorTests.swift in Sources */,
 				91841A952A5069F500C2781F /* TVMazeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

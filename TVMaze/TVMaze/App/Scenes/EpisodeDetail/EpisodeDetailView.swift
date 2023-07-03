@@ -46,15 +46,15 @@ struct EpisodeDetailView: View {
                     .font(.footnote)
             }
             .foregroundColor(.white)
-            .padding(8.0)
+            .padding(8)
         }
     }
 
 
     var summaryView: some View {
         Text(episode.summary.htmlTagsRemoved)
-            .font(.caption)
-            .padding(4.0)
+            .font(.footnote)
+            .padding(8)
     }
 }
 
