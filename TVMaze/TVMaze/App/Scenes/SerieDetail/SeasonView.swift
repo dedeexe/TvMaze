@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SeasonView: View {
     @Binding var season: Season
+    @Binding var selectedEposide: Episode?
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -26,10 +27,20 @@ struct SeasonView: View {
 
             if season.expanded {
                 ForEach(season.episodes, id: \.self) { episode in
-                    Text("\(episode.number). \(episode.name)")
-                        .font(.callout)
+                    VStack {
+                        Divider()
+                        HStack {
+                            Text("\(episode.number). \(episode.name)")
+                                .font(.callout)
+                            Spacer()
+                            Text("\(Image(systemName: "calendar")) \(episode.date)")
+                                .font(.footnote)
+                                .frame(width: 150)
+                        }
                         .padding([.leading, .bottom, .top], 5)
-
+                    }.onTapGesture {
+                        selectedEposide = episode
+                    }
                 }
             }
         }
@@ -62,7 +73,8 @@ struct SeasonView_Previews: PreviewProvider {
                         ],
                         expanded: false
                     )
-                )
+                ),
+                selectedEposide: .constant(nil)
             )
             .previewLayout(.fixed(width: 300, height: 40))
 
@@ -82,7 +94,8 @@ struct SeasonView_Previews: PreviewProvider {
                         ],
                         expanded: true
                     )
-                )
+                ),
+                selectedEposide: .constant(nil)
             )
             .previewLayout(.fixed(width: 300, height: 400))
         }

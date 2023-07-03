@@ -2,14 +2,15 @@ import SwiftUI
 
 struct SerieDetailContainerView: View {
     @State var show: Show
+    @State var selectedEpisode: Episode?
     @ObservedObject var showsData: ShowsData
     @StateObject var seasonsList = SeasonsData()
 
     var body: some View {
-        SerieDetailView(show: $show)
+        SerieDetailView(show: $show, selectedEpisode: $selectedEpisode)
             .onAppear { seasonsList.loadEpisodes(showId: show.id) }
-            .onChange(of: show) { newValue in
-                print(newValue)
+            .sheet(item: $selectedEpisode) { episode in
+                EpisodeDetailView(episode: episode, show: show)
             }
             .environmentObject(showsData)
             .environmentObject(seasonsList)

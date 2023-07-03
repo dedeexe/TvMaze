@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SerieDetailView: View {
     @Binding var show: Show
+    @Binding var selectedEpisode: Episode?
     @EnvironmentObject var showsData: ShowsData
     @EnvironmentObject var seasonsList: SeasonsData
 
@@ -82,7 +83,7 @@ struct SerieDetailView: View {
             if seasonsList.isLoading {
                 ProgressView()
             } else {
-                SeasonListView(seasons: $seasonsList.seasons)
+                SeasonListView(seasons: $seasonsList.seasons, selectedEpisode: $selectedEpisode)
             }
         }
         .padding([.leading, .trailing], 8)
@@ -91,7 +92,7 @@ struct SerieDetailView: View {
 
 struct SerieDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        SerieDetailView(show: .constant(.fixture()))
+        SerieDetailView(show: .constant(.fixture()), selectedEpisode: .constant(nil))
             .environmentObject(SeasonsData())
     }
 }

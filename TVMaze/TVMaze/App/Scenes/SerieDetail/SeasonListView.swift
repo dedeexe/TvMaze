@@ -2,11 +2,12 @@ import SwiftUI
 
 struct SeasonListView: View {
     @Binding var seasons: Seasons
+    @Binding var selectedEpisode: Episode?
 
     var body: some View {
         LazyVStack {
             ForEach(seasons.seasons.indices, id: \.self) { idx in
-                SeasonView(season: $seasons.seasons[idx])
+                SeasonView(season: $seasons.seasons[idx], selectedEposide: $selectedEpisode)
                 Divider()
             }
         }
@@ -24,7 +25,8 @@ struct SeasonsView_Previews: PreviewProvider {
                         return .fixture(id: $0, name: "Episode S\(season)|E\(episode)", number: episode, season: season, summary: "Summary of the Episode S\(season)|E\(episode)")
                     }
                 )
-            )
+            ),
+            selectedEpisode: .constant(nil)
         )
         .previewLayout(.fixed(width: 300, height: 500))
     }

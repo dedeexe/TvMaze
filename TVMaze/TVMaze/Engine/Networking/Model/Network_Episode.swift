@@ -8,5 +8,7 @@ extension Model.Network {
         let season: Int?
         let summary: String?
         let image: ImageURL?
+        let runtime: Int?
+        let airdate: String?
     }
 }

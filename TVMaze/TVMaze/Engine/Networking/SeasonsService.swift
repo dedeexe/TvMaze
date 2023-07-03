@@ -38,6 +38,8 @@ private extension Episode {
         number = model.number ?? 0
         season = model.season ?? 0
         summary = model.summary ?? ""
-        imageURL = URL(string: model.image?.medium ?? "")
+        imageURL = URL(string: model.image?.original ?? "")
+        runtime = model.runtime ?? 0
+        date = model.airdate ?? "-"
     }
 }
